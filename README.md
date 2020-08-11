@@ -258,10 +258,16 @@ Delete Book
 
 ## application terminal commands
 create database with the name book_api in mysql server and run the following commands to start the application
-
+- **git clone git@github.com:Akinbami/laravel-rest-API.git**<br>
+`clone repository to system`
+- **composer install**<br>
+`install dependencies`
 - **php artisan migrate**<br>
 `create database migration`
 - **php artisan test**<br>
 `run test with phpunit`
 - **php artisan serve**<br>
 `start application`
+
+## NOTE
+php version 7.2 or higher is required to use laravel 7
