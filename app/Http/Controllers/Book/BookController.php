@@ -75,9 +75,9 @@ class BookController extends Controller
 
         // validating inputs
         $validator = Validator::make($request->all(), $rules);
-        if($validator->fails()){
-            return response()->json($validator->errors(), 400);
-        }
+        // if($validator->fails()){
+        //     return response()->json($validator->errors(), 400);
+        // }
 
         // creating book record
         try {
