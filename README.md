@@ -245,10 +245,6 @@ Delete Book
 ## Database Model
 - **BookModel**
 
-- **PHP 7.3(https://www.php.net/downloads)**
-- **Laravel 7(https://laravel.com/docs/7.x/installation)**
-- **Mysql 8.0(https://www.mysql.com/downloads/)**
-
 ## Tools Used
 
 - **PHP 7.3(https://www.php.net/downloads)**
@@ -260,3 +256,8 @@ Delete Book
 - **guzzlehttp/guzzle ^7.0 (https://laravel.com/docs/7.x/http-client)**
 - **league/fractal ^0.19.2 (https://fractal.thephpleague.com/simple-example)**
 
+## application terminal commands
+create database with the name book_api in mysql server and run the following commands to start the application
+
+- **php artisan migrate**
+- **php artisan serve**
