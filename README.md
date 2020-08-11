@@ -12,17 +12,18 @@
 
 Query the Ice And Fire API and use the data received to respond with precisely the following JSON if there are results:
 
-- URL
-    http://127.0.0.1:8000/api/external-books
-- Method
-    GET
-- URL Params
-    name=[string]
-- Data Params
+* **URL**
+    `http://127.0.0.1:8000/api/external-books`
+* **Method**
+    `GET`
+* **URL Params**
+    `name=[string]`
+* **Data Params**
     None
-- Success Response:
+* **Success Response:**
     * **Code:** 200 <br />
-    * **Content:** ```{
+    * **Content:** 
+                ```{
                         "status_code": 200,
                         "status": "success",
                         "data": {
