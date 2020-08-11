@@ -8,25 +8,50 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## External book API from (Ice and Fire Data)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Query the Ice And Fire API and use the data received to respond with precisely the following JSON if there are results:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- URL
+    http://127.0.0.1:8000/api/external-books
+- Method
+    GET
+- URL Params
+    name=[string]
+- Data Params
+    None
+- Success Response:
+    * **Code:** 200 <br />
+    * **Content:** ```{
+                        "status_code": 200,
+                        "status": "success",
+                        "data": {
+                            "data": [
+                                {
+                                    "name": "A Game of Thrones",
+                                    "isbn": "978-0553103540",
+                                    "authors": [
+                                        "George R. R. Martin"
+                                    ],
+                                    "number_of_pages": 694,
+                                    "publisher": "Bantam Books",
+                                    "country": "United States",
+                                    "release_date": "1996-08-01T00:00:00"
+                                },
+                                {
+                                    "name": "A Clash of Kings",
+                                    "isbn": "978-0553108033",
+                                    "authors": [
+                                        "George R. R. Martin"
+                                    ],
+                                    "number_of_pages": 768,
+                                    "publisher": "Bantam Books",
+                                    "country": "United States",
+                                    "release_date": "1999-02-02T00:00:00"
+                                }
+                            ]
+                        }
+                    }```
 
 ## Laravel Sponsors
 
