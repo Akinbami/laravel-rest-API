@@ -17,17 +17,11 @@ class CreateBookModelsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('isbn');
+            $table->string('Authors');
             $table->string('country');
             $table->integer('number_of_pages');
             $table->string('publisher');
             $table->string('release_date');
-
-            $table->engine = 'InnoDB';
-        });
-
-        Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique;
 
             $table->engine = 'InnoDB';
         });
@@ -41,6 +35,5 @@ class CreateBookModelsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('books');
-        Schema::dropIfExists('authors');
     }
 }

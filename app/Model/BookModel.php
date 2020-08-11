@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\AuthorModel;
 
 class BookModel extends Model
 {
@@ -12,14 +11,11 @@ class BookModel extends Model
     protected $fillable = [
         'name',
         'isbn',
+        'authors',
         'country',
         'number_of_pages',
         'publisher',
         'release_date'
     ];
 
-    public function authors()
-    {
-        return $this->belongsToMany(AuthorModel::class);
-    }
 }
