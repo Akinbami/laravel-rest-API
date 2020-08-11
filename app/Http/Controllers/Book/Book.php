@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Http;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
-use App\Transformers\BookTransformer;
 
 class Book extends Controller
 {

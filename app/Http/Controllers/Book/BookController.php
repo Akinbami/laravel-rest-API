@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Model\BookModel;
 use Validator;
 
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
 
 class BookController extends Controller
 {
@@ -19,10 +21,24 @@ class BookController extends Controller
     public function index()
     {
         $books = BookModel::get();
+        $fractal = new Manager();
+        $resource = new Collection($books, function(BookModel $book) {
+            return [
+                'name' => $book->name,
+                'isbn' => $book->isbn,
+                'authors' => [$book->Authors],
+                'number_of_pages' => $book->number_of_pages,
+                'publisher' => $book->publisher,
+                'country' => $book->country,
+                'release_date' => $book->release_date
+            ];
+        });
+
+        $new_data = $fractal->createData($resource);
         $response = [
             "status_code"=>200,
             "status"=>"success",
-            "data"=>$books
+            "data"=>$new_data
         ];
         
         return response()->json($response, 200); 
@@ -46,37 +62,54 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        // creating input rules
         $rules = [
             'name' => 'required',
             'isbn' => 'required',
+            'authors' => 'required',
             'country' => 'required',
             'number_of_pages' => 'required',
             'publisher' => 'required',
             'release_date' => 'required'
         ];
 
+        // validating inputs
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
 
+        // creating book record
         try {
             $book = BookModel::create($request->all());
+            $fractal = new Manager();
+            $resource = new Collection([$book], function(BookModel $book) {
+                return [
+                    'name' => $book->name,
+                    'isbn' => $book->isbn,
+                    'authors' => [$book->authors],
+                    'number_of_pages' => $book->number_of_pages,
+                    'publisher' => $book->publisher,
+                    'country' => $book->country,
+                    'release_date' => $book->release_date
+                ];
+            });
+
+            $new_data = $fractal->createData($resource);
             $response = [
-                "status_code"=>201,
+                "status_code"=>200,
                 "status"=>"success",
-                "data"=>[
-                    "book"=>$book
-                    ]
+                "data"=>$new_data
             ];
+           
             return response()->json($response, 201);
         }catch (QueryException $e) {
             $response = [
-                "status_code"=>201,
+                "status_code"=>400,
                 "status"=>"fail",
                 "data"=>[]
             ];
-            return response()->json($e, 201);
+            return response()->json($e, 400);
         }
     }
 
@@ -97,11 +130,26 @@ class BookController extends Controller
             ];
             return response()->json($response, 404);
         }else{
+            $fractal = new Manager();
+            $resource = new Collection([$book], function(BookModel $book) {
+                return [
+                    'name' => $book->name,
+                    'isbn' => $book->isbn,
+                    'authors' => [$book->Authors],
+                    'number_of_pages' => $book->number_of_pages,
+                    'publisher' => $book->publisher,
+                    'country' => $book->country,
+                    'release_date' => $book->release_date
+                ];
+            });
+
+            $new_data = $fractal->createData($resource);
             $response = [
                 "status_code"=>200,
                 "status"=>"success",
-                "data"=> $book
+                "data"=>$new_data
             ];
+            
             return response()->json($response, 200); 
         }
     }
@@ -136,11 +184,26 @@ class BookController extends Controller
             return response()->json($response, 404);
         }else{
             $book->update($request->all());
+            $fractal = new Manager();
+            $resource = new Collection([$book], function(BookModel $book) {
+                return [
+                    'name' => $book->name,
+                    'isbn' => $book->isbn,
+                    'authors' => [$book->Authors],
+                    'number_of_pages' => $book->number_of_pages,
+                    'publisher' => $book->publisher,
+                    'country' => $book->country,
+                    'release_date' => $book->release_date
+                ];
+            });
+
+            $new_data = $fractal->createData($resource);
+
             $response = [
                 "status_code"=>200,
                 "status"=>"success",
                 "message"=> sprintf("The book %s was updated successfully",$book->name),
-                "data"=> $book
+                "data"=> $new_data
             ];
             return response()->json($response, 200); 
         }
