@@ -12,18 +12,19 @@
 
 Query the Ice And Fire API and use the data received to respond with precisely the following JSON if there are results:
 
-* **URL**
+* **URL** <br />
     `http://127.0.0.1:8000/api/external-books`
 * **Method**
     `GET`
-* **URL Params**
+* **URL Params** <br />
     `name=[string]`
-* **Data Params**
-    None
+* **Data Params** <br />
+    `None`
 * **Success Response:**
     * **Code:** 200 <br />
-    * **Content:** 
-                ```{
+    * **Content:** <br />
+                ```json
+                    {
                         "status_code": 200,
                         "status": "success",
                         "data": {
@@ -52,34 +53,23 @@ Query the Ice And Fire API and use the data received to respond with precisely t
                                 }
                             ]
                         }
-                    }```
+                    }
+                ```
+## Database Model
+- **BookModel**
+
+- **PHP 7.3(https://www.php.net/downloads)**
+- **Laravel 7(https://laravel.com/docs/7.x/installation)**
+- **Mysql 8.0(https://www.mysql.com/downloads/)**
 
 ## Tools Used
 
-- **PHP 7.3(https://vehikl.com/)**
-- **Laravel 7(https://tighten.co)**
-- **Mysql 8.0(https://kirschbaumdevelopment.com)**
+- **PHP 7.3(https://www.php.net/downloads)**
+- **Laravel 7(https://laravel.com/docs/7.x/installation)**
+- **Mysql 8.0(https://www.mysql.com/downloads/)**
 
 ## Development Libraries
 
-- **guzzlehttp/guzzle ^7.0 (https://vehikl.com/)**
-- **league/fractal ^0.19.2 (https://tighten.co)**
-
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
+- **guzzlehttp/guzzle ^7.0 (https://laravel.com/docs/7.x/http-client)**
+- **league/fractal ^0.19.2 (https://fractal.thephpleague.com/simple-example)**
 
