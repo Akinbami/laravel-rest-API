@@ -260,5 +260,8 @@ Delete Book
 create database with the name book_api in mysql server and run the following commands to start the application
 
 - **php artisan migrate**
+`create database migration`
 - **php artisan test**
+`run test with phpunit`
 - **php artisan serve**
+`start application`
