@@ -14,7 +14,7 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class BookController extends Controller
+class LocalBookController extends Controller
 {
     /**
      * Display a listing of the resource.

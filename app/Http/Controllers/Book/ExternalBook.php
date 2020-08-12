@@ -24,7 +24,6 @@ class ExternalBook extends Controller
 
         // suppressing fields
         $res = $external_api_response->json();
-
         $fractal = new Manager();
         $resource = new Collection($res, function(array $res) {
             return [
@@ -38,6 +37,7 @@ class ExternalBook extends Controller
             ];
         });
 
+        // creating data object from suppressed resource
         $new_data = $fractal->createData($resource);
 
         $response = [

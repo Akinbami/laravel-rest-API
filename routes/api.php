@@ -22,4 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/external-books', 'Book\ExternalBook@getAllBooks');
 
 // api for local books
-Route::apiResource('/v1/books', 'Book\BookController');
+Route::apiResource('/v1/books', 'Book\LocalBookController');
