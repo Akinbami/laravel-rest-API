@@ -17,7 +17,7 @@ class CreateBookModelsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('isbn');
-            $table->string('Authors');
+            $table->string('authors');
             $table->string('country');
             $table->integer('number_of_pages');
             $table->string('publisher');

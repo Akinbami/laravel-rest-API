@@ -12,7 +12,7 @@ class BookTransformer extends TransformerAbstract
         return [
             'name' => $book->name,
             'isbn' => $book->isbn,
-            'authors' => $book->authors,
+            'authors' => [$book->authors],
             'number_of_pages' => $book->number_of_pages,
             'publisher' => $book->publisher,
             'country' => $book->country,
