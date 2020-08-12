@@ -10,7 +10,7 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
 
-class Book extends Controller
+class ExternalBook extends Controller
 {
     
     public function getAllBooks(Request $request){

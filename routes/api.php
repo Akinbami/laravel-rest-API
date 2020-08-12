@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // api route for externam books
-Route::get('/external-books', 'Book\Book@getAllBooks');
+Route::get('/external-books', 'Book\ExternalBook@getAllBooks');
 
 // api for local books
 Route::apiResource('/v1/books', 'Book\BookController');
