@@ -24,9 +24,12 @@ class LocalBookController extends Controller
     public function index()
     {
         $books = BookModel::get();
+
+        // suppressing fields
         $fractal = new Manager();
         $resource = new Collection($books, new BookTransformer);
 
+        // creating data object from suppressed resource
         $new_data = $fractal->createData($resource);
         $response = [
             "status_code"=>200,
@@ -75,6 +78,8 @@ class LocalBookController extends Controller
         // creating book record
         try {
             $book = BookModel::create($request->all());
+
+            // suppressing fields
             $fractal = new Manager();
             $resource = new Item($book, new BookTransformer);
 
@@ -113,6 +118,7 @@ class LocalBookController extends Controller
             ];
             return response()->json($response, 404);
         }else{
+            // suppressing fields
             $fractal = new Manager();
             $resource = new Item($book, new BookTransformer);
 
@@ -157,6 +163,7 @@ class LocalBookController extends Controller
             return response()->json($response, 404);
         }else{
             $book->update($request->all());
+            // suppressing fields
             $fractal = new Manager();
             $resource = new Item($book, new BookTransformer);
 
